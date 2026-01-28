@@ -23,7 +23,7 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
             <Link href="/health-checks">Health Checks</Link>
-            <Link href="/how-it-works">How It Works</Link>
+            <Link href="/find-my-health-check">Find my health check</Link>
             <Link href="/about-us">About</Link>
             <Link href="/trust-safety">Trust & Safety</Link>
           </nav>

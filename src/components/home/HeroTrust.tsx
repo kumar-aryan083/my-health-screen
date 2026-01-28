@@ -1,25 +1,40 @@
-import Section from "@/components/layout/Section";
 import Container from "@/components/layout/Container";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HeroTrust() {
   return (
-    <Section variant="soft">
+    <section className="relative h-[85vh] min-h-[600px] w-full">
+      {/* Background Image */}
+      <Image
+        src="/images/hero-clinic.jpg"
+        alt="Doctor reviewing patient results"
+        fill
+        priority
+        className="object-cover"
+      />
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+
+      {/* Content */}
       <Container>
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-          {/* LEFT: Message */}
-          <div>
-            <h1 className="text-4xl md:text-5xl font-semibold leading-tight text-textPrimary">
+        <div className="relative z-10 flex h-[85vh] min-h-[600px] items-center">
+          <div className="max-w-2xl text-white">
+            <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
               Clear answers about your health —
-              <span className="text-primary"> without confusion or panic</span>.
+              <span className="text-primarySoft">
+                {" "}
+                without confusion or panic
+              </span>
+              .
             </h1>
 
-            <p className="mt-6 text-lg text-textMuted max-w-xl leading-relaxed">
+            <p className="mt-6 text-lg md:text-xl text-white/90 leading-relaxed">
               Doctor-reviewed private health screening with clear explanations,
               honest guidance, and real next steps — not just test results.
             </p>
 
-            {/* CTAs */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/find-my-health-check"
@@ -30,27 +45,19 @@ export default function HeroTrust() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md border border-primary text-primary px-6 py-3 font-medium hover:bg-white transition"
+                className="inline-flex items-center justify-center rounded-md border border-white/70 text-white px-6 py-3 font-medium hover:bg-white/10 transition"
               >
                 Talk to a clinician
               </Link>
             </div>
 
-            {/* Micro reassurance */}
-            <p className="mt-6 text-sm text-textMuted">
+            <p className="mt-6 text-sm text-white/80">
               UK-registered doctors · Confidential & GDPR secure · No
               unnecessary testing
             </p>
           </div>
-
-          {/* RIGHT: Visual */}
-          <div className="hidden lg:block">
-            <div className="h-96 rounded-2xl bg-white shadow-card flex items-center justify-center text-textMuted">
-              Medical imagery
-            </div>
-          </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }

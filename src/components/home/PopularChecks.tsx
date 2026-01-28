@@ -21,33 +21,39 @@ export default function PopularChecks() {
 
         {/* Cards */}
         <div className="mt-10 md:mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {popularHealthChecks.map((check) => (
-            <Card key={check.slug} className="flex flex-col justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-textPrimary">
-                  {check.title}
-                </h3>
+          {popularHealthChecks.map((check) => {
+            const Icon = check.icon;
 
-                <p className="mt-3 text-sm md:text-base text-textMuted leading-relaxed">
-                  {check.description}
-                </p>
+            return (
+              <Card key={check.slug} className="flex flex-col justify-between">
+                <div>
+                  <Icon className="h-7 w-7 text-primary/70 mb-4" />
 
-                <ul className="mt-4 text-sm text-textMuted space-y-1">
-                  <li>{check.time}</li>
-                  <li className="font-medium text-textPrimary">
-                    From {check.priceFrom}
-                  </li>
-                </ul>
-              </div>
+                  <h3 className="text-lg font-semibold text-textPrimary">
+                    {check.title}
+                  </h3>
 
-              <Link
-                href={`/health-checks/${check.slug}`}
-                className="mt-6 inline-flex items-center text-primary font-medium hover:underline"
-              >
-                Learn more →
-              </Link>
-            </Card>
-          ))}
+                  <p className="mt-3 text-sm md:text-base text-textMuted leading-relaxed">
+                    {check.description}
+                  </p>
+
+                  <ul className="mt-4 text-sm text-textMuted space-y-1">
+                    <li>{check.time}</li>
+                    <li className="font-medium text-textPrimary">
+                      From {check.priceFrom}
+                    </li>
+                  </ul>
+                </div>
+
+                <Link
+                  href={`/health-checks/${check.slug}`}
+                  className="mt-6 inline-flex items-center text-primary font-medium hover:underline"
+                >
+                  Learn more →
+                </Link>
+              </Card>
+            );
+          })}
         </div>
       </Container>
     </Section>
