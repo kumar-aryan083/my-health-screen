@@ -1,46 +1,63 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Container from "@/components/layout/Container";
 import Button from "@/components/ui/Button";
-import Link from "next/link";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-white border-b border-borderSoft">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-borderSoft">
       <Container>
-        <div className="h-16 md:h-20 flex items-center justify-between">
+        <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="text-lg md:text-xl font-semibold text-primary"
+            className="text-lg md:text-xl font-semibold tracking-tight text-primary"
           >
             UK Medicare Screening
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <Link href="/health-checks">Health Checks</Link>
-            <Link href="/find-my-health-check">Find my health check</Link>
-            <Link href="/about-us">About</Link>
-            <Link href="/trust-safety">Trust & Safety</Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-textPrimary">
+            <Link
+              href="/health-checks"
+              className="hover:text-primary transition"
+            >
+              Health Checks
+            </Link>
+            <Link
+              href="/find-my-health-check"
+              className="hover:text-primary transition"
+            >
+              Find my health check
+            </Link>
+            <Link href="/about-us" className="hover:text-primary transition">
+              About
+            </Link>
+            <Link
+              href="/trust-safety"
+              className="hover:text-primary transition"
+            >
+              Trust & Safety
+            </Link>
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Link href="/find-my-health-check">
-              <Button className="text-sm px-5 py-2">
+              <Button className="px-5 py-2 text-sm text-textPrimary">
                 Find your health check
               </Button>
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-textPrimary"
+            className="lg:hidden inline-flex items-center justify-center rounded-md border border-borderSoft px-3 py-2 text-textPrimary hover:bg-backgroundSoft transition"
             aria-label="Toggle menu"
           >
             ☰
@@ -48,21 +65,40 @@ export default function Header() {
         </div>
       </Container>
 
-      {/* Mobile Menu */}
+      {/* Mobile Navigation */}
       {open && (
-        <div className="md:hidden border-t border-borderSoft bg-white">
+        <div className="lg:hidden border-t border-borderSoft bg-white">
           <Container>
-            <nav className="py-6 flex flex-col gap-4 text-sm font-medium">
-              <Link href="/health-checks" onClick={() => setOpen(false)}>
+            <nav className="flex flex-col gap-5 py-6 text-sm font-medium text-textPrimary">
+              <Link
+                href="/health-checks"
+                onClick={() => setOpen(false)}
+                className="hover:text-primary"
+              >
                 Health Checks
               </Link>
-              <Link href="/how-it-works" onClick={() => setOpen(false)}>
-                How It Works
+
+              <Link
+                href="/find-my-health-check"
+                onClick={() => setOpen(false)}
+                className="hover:text-primary"
+              >
+                Find my health check
               </Link>
-              <Link href="/about-us" onClick={() => setOpen(false)}>
+
+              <Link
+                href="/about-us"
+                onClick={() => setOpen(false)}
+                className="hover:text-primary"
+              >
                 About
               </Link>
-              <Link href="/trust-safety" onClick={() => setOpen(false)}>
+
+              <Link
+                href="/trust-safety"
+                onClick={() => setOpen(false)}
+                className="hover:text-primary"
+              >
                 Trust & Safety
               </Link>
 

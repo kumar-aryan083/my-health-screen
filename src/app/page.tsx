@@ -9,10 +9,10 @@ export default function Home() {
   return (
     <main>
       <HeroTrust />
-      <TrustStrip />
-      <ReassuranceBlock />
-      <HowItWorks />
       <PopularChecks />
+      <ReassuranceBlock />
+      <TrustStrip />
+      <HowItWorks />
       <ClinicianCTA />
     </main>
   );
